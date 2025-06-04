@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.3.12)  4 JUN 2025 13:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.3.12)  4 JUN 2025 14:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -369,6 +369,12 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
+Overfull \hbox (4.21783pt too wide) in paragraph at lines 17--18
+[]\OT1/cmr/m/n/12 Motivated by ex-per-i-men-tally ob-served quasi-one-dimension
+al struc-tures, the au-thors study
+ []
+
+
 
 [1
 
@@ -382,14 +388,14 @@ L3 programming layer <2025-01-18>
 Here is how much of TeX's memory you used:
  6231 strings out of 473530
  99268 string characters out of 5714794
- 591320 words of memory out of 5000000
+ 593320 words of memory out of 5000000
  29388 multiletter control sequences out of 15000+600000
  559135 words of font info for 37 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
- 79i,5n,93p,378b,114s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,5n,93p,983b,114s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/mikep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmr12.pfb>
-Output written on wang_review.pdf (1 page, 9726 bytes).
+Output written on wang_review.pdf (1 page, 18056 bytes).
 PDF statistics:
  11 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

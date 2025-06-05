@@ -11,9 +11,62 @@
 \usepackage{stmaryrd}
 \usepackage{color}
 \usepackage{xcolor}
+\usepackage{csquotes}
 
 \begin{document}
 
-Motivated by experimentally observed quasi-one-dimensional structures, the authors study size regulation of such structures. The key ingredients are breaking of cell-cell junctions and formation of new junctions through division. The breaking occurs due to cell activity. The first part of the paper treats this as an active, persistent particle model. They obtain an expression of the breaking rate using Kramer's theory. This is used as input for the next step, which adds in cell division. Analytical methods, stochastic simulation, and numerics are used to characterize the distribution of chain lengths and the coefficient of variation. The two variations they consider are whether growth occurs uniformly or strictly at the boundary and whether the chain needs to be sufficiently large too break. They find that localized growth at the boundaries and breaking localized to the middle of the chain both reduce the coefficient of variation.
+\textbf{Summary:} Motivated by experimentally observed quasi-one-dimensional cellular structures, the authors study size regulation of such structures. The key ingredients are breaking of cell-cell junctions and formation of new junctions through division. The breaking occurs due to cell activity. The first part of the paper treats this as an active, persistent particle model. They obtain an expression of the breaking rate using Kramer's theory. This is used as input for the next step, which adds in cell division. Analytical methods, stochastic simulation, and numerics are used to characterize the distribution of chain lengths and the coefficient of variation. The two variations they consider are whether growth occurs uniformly or strictly at the boundary and whether the chain needs to be sufficiently large too break. They find that localized growth at the boundaries and breaking localized to the middle of the chain both reduce the coefficient of variation.
+
+\textbf{Significance:} I currently have some reservations about the impact of this work. I will summarize the main contributions of this work in a bit more detail and give my impression of their significance:
+\begin{itemize}
+	\item[1.] The demonstration that the rate of breaking a single link in a multi-link chain in their active system is not the same as breaking a single link in a two particle system, as one would expect in equilibrium. This is interesting and non-trivial.
+	
+	\item[2.] The model has its roots in a very similar model used in the Yang paper (reference 3), except they made the cell cycle durations exponentially distributed instead of normally distributed. This makes the system Markovian and amenable to a master equation description. The authors provide steady state solutions for these master equations under the different hypotheses for growth. Analytic solutions to the master equation are rare and precious, though their usage is often quite specialized. The conclusions drawn about the effects of different localization of growth on the coefficient of variation are non-trivial.
+	
+	\item[3.] The final finding is that imposing a minimum cluster size can also reduce the coefficient of variation. This seems to follow from a straightforward verbal argument. Clusters with size less than twice the minimum length cannot fracture, so clusters will always grow up to this point. Once they hit twice the minimum volume, they can divide in exactly one place, and that place will stay narrowly distributed around the middle as the size increases. This finding does not seem surprising, and I have further issues with its biological and physical relevance, detailed in point 3 below.
+\end{itemize}
+I'll focus on the \underline{physical significance} first. Though \#1 is interesting, it's not clear what its broader impact will be. It is something theorists should keep in mind when doing escape problems like this, but this isn't the main point of the paper. For \#2, exact solutions are always valuable, but their utility here may be limited due to the highly specific assumptions. There are other models of localized growth and breaking. In models of growth and catastrophe in microtubule assembly, growth and fracture both occur at the tip. These distinctions limit the applicability of the results to other systems. Point \#3 is addressed below. 
+
+The \underline{biological significance} seems speculative. The system in the Yang paper that motivated this work does not reach the steady state before mechanical properties start changing. It seems like all cells divide and fractures can occur anywhere. The structures they get are one-dimensional for very small numbers of cells, but, looking at their figures, they can form branches in orthogonal directions and even seem to fold back on themselves. If the shapes are multiple cells thick at some parts, breaking one connection is insufficient for fracture, raising the question of whether or not these finding are even applicable there. It's not clear if there is a truly one-dimensional structure in biology where a precise cluster size is functionally selected for.
+
+Though the work is technically sound and well-written, I feel that it does not present a substantial enough advance for PRL for these reasons.
+
+\textbf{Specific Comments:} Here are my main comments about the body of the paper:
+\begin{itemize}
+	\item[1.] I think that the beginning should more clearly explain what the model system is and why it is reasonable to even consider a one-dimensional model. My initial reaction to reading the abstract was surprise that a one-dimensional model was chosen, since one often thinks of clusters in two- and three-dimensional contexts, not one dimension. Only after looking at the Levy paper was I convinced that this approach was relevant. There is a sentence in the first paragraph
+	\begin{displayquote}
+		Similarly, germline cysts in mice are formed by a combination of cell division and fracture of intercellular bridges by random cell motility.
+	\end{displayquote}
+	but this doesn't convey the string-like nature of the cysts that can be one cell thick. I had to look at the Levy paper to understand this. I think a clearer explanation or even an image from the Levy paper placed in Fig. 1 would greatly help with this.
+	
+	\item[2.] This is more about framing and related to the previous point. Clusters in one-dimension are very special. When viewed as topological graphs, they can always be disconnected by removing exactly one edge. This property fails to hold in any other dimension: removing an edge doesn't necessarily disconnect a graph in two- or three-dimensional spaces. This gives me pause with regards to how broadly applicable the results found here will be. I think that the abstract should explicitly mention that they are studying a one-dimensional system. Likewise, the discussion says how important this is for understanding clusters in cancer, organs, and organisms and says how things like cell-matrix should be studied, but it doesn't mention the dimensionality at all. 
+	
+	\item[3.] I think that the model with the minimum size lacks a good motivation. The authors only state that
+	\begin{displayquote}
+		We have so far assumed all rupture rates to be identical, but secreted factors [19] or stress [20] may vary across the cluster. As a simple model of these effects, we assume that only the junctions sufficiently far from the
+		cluster edge break.
+	\end{displayquote}
+	I have a two major issues with this. 
+	
+	First, the Levy paper seems to show a few images where fractures can occur at the boundaries of clusters and in clusters with as few as 2-4 cells. They then go on to consider clusters whose minimum size is 100 cells, much larger than any of the clusters observed in the Levy paper (the largest seems to have about 20 cells). I understand that this paper is not meant to be a model strictly tied to the system in the Yang paper, but their observations can still be informative about the relative contributions of forces in biologically relevant parameter regimes.
+	
+	Second, this is not a passive elastic system, so the stresses don't have to be small at the boundaries in the absence of external forces. The authors start from a mechanical model. The analog of stress/ strain is the deviation of each spring from its rest length $\delta \ell_n$. Eqn. 3 combined with the following text implies that the spring statistics are spatially uniform. In the SI, the authors state that this was done with periodic boundary conditions. However, by symmetry, one expects the deviation to have zero-mean. Higher stresses could, in principle, be encoded in different variances near the center, but the authors state that in simulations with free boundaries, they found that the variance $\langle (\delta \ell_n)^2\rangle$ did not depend on $n$ for large $N$. Where are these non-uniform stresses coming from?
+	
+	The assumption of there being a minimum size is a very strong one; fractures only begin to appear at twice the minimum size and must occur near the middle. The authors go on to say that weakening it by adding a basal breaking rate creates a statistically relevant population of short chains that presumably increases the coefficient of variation. Therefore, I think that this needs to be motivated carefully.
+\end{itemize}
+
+Minor comments:
+\begin{itemize}
+	\item In the first paragraph, there is the sentence:
+	\begin{displayquote}
+		These mechanisms are more reminiscent of how cancerous cells can break from an invading front [4–6] than a well-regulated organism.
+	\end{displayquote}
+	that I think is missing a word (how should I compare the breaking?).
+	\item Preceding Eqn. 5, there is some context:
+	\begin{displayquote}
+		Assuming $p_n(t)$ gives the probability that the length of the tracked chain at time $t$ is $n$, the master equation governing such a process is, generalizing [17],
+	\end{displayquote}
+	This is citing an entire textbook. No pages are specified. What exactly is being generalized?
+\end{itemize}
 
 \end{document}
